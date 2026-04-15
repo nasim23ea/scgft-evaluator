@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "scgft-evaluator"
+version = "0.1.0"
+description = "Evaluation metrics for comparing real vs synthetic single-cell RNA data (scGFT)"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Nasim El Arifi Ahmed", email = "nasim.e.a@um.es" }
+]
+keywords = ["single-cell", "RNA", "synthetic data", "bioinformatics"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+requires-python = ">=3.9"
+
+dependencies = [
+  "numpy>=1.24,<2.0",
+  "pandas>=1.5",
+  "scipy>=1.10",
+  "scikit-learn>=1.2",
+  "statsmodels>=0.14",
+  "anndata>=0.9",
+]
+
+[project.optional-dependencies]
+full = ["scanpy>=1.9", "h5py>=3.7,<4", "numba==0.60.0", "llvmlite==0.43.0"]
+dev  = ["pytest", "black", "ruff"]
+
+[project.urls]
+Homepage   = "https://github.com/nasim23ea/scgft-evaluator"
+Repository = "https://github.com/nasim23ea/scgft-evaluator"
+Issues     = "https://github.com/nasim23ea/scgft-evaluator/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"] 
